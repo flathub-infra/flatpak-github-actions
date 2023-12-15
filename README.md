@@ -1,14 +1,6 @@
-<div align="center">
-
 # Flatpak GitHub Actions
 
 Build and deploy your Flatpak application using GitHub Actions
-
-<img src="https://github.com/flatpak/flatpak/raw/main/flatpak.png?raw=true" alt="Flatpak logo" />
-
-![CI](https://github.com/flatpak/flatpak-github-actions/workflows/CI/badge.svg)
-
-</div>
 
 ## How to use
 
@@ -27,11 +19,11 @@ jobs:
     name: "Flatpak"
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-44
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-44
       options: --privileged
     steps:
     - uses: actions/checkout@v4
-    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+    - uses: flathub/flatpak-github-actions/flatpak-builder@v6
       with:
         bundle: palette.flatpak
         manifest-path: org.gnome.zbrown.Palette.yml
@@ -75,7 +67,7 @@ jobs:
     name: "Flatpak"
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-44
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-44
       options: --privileged
     strategy:
       matrix:
@@ -95,7 +87,7 @@ jobs:
       uses: docker/setup-qemu-action@v2
       with:
         platforms: arm64
-    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+    - uses: flathub/flatpak-github-actions/flatpak-builder@v6
       with:
         bundle: palette.flatpak
         manifest-path: org.gnome.zbrown.Palette.yml
@@ -160,17 +152,17 @@ jobs:
     name: "Flatpak"
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-44
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-44
       options: --privileged
     steps:
     - uses: actions/checkout@v4
-    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+    - uses: flathub/flatpak-github-actions/flatpak-builder@v6
       name: "Build"
       with:
         bundle: palette.flatpak
         manifest-path: org.gnome.zbrown.Palette.yml
         cache-key: flatpak-builder-${{ github.sha }}
-    - uses: flatpak/flatpak-github-actions/flat-manager@v4
+    - uses: flathub/flatpak-github-actions/flat-manager@v4
       name: "Deploy"
       with:
         repository: elementary
@@ -202,25 +194,11 @@ You can specify the specific runtime you need to use through the image tags:
 
 | Runtime         | Version | Tag                 | Example                                                          |
 | --------------- | ------- | ------------------- | ---------------------------------------------------------------- |
-| Freedesktop SDK | 20.08   | `freedesktop-20.08` | `image: bilelmoussaoui/flatpak-github-actions:freedesktop-20.08` |
-| Freedesktop SDK | 21.08   | `freedesktop-21.08` | `image: bilelmoussaoui/flatpak-github-actions:freedesktop-21.08` |
-| Freedesktop SDK | 22.08   | `freedesktop-22.08` | `image: bilelmoussaoui/flatpak-github-actions:freedesktop-22.08` |
-| Freedesktop SDK | 23.08   | `freedesktop-23.08` | `image: bilelmoussaoui/flatpak-github-actions:freedesktop-23.08` |
-| GNOME           | 3.38    | `gnome-3.38`        | `image: bilelmoussaoui/flatpak-github-actions:gnome-3.38`        |
-| GNOME           | 40    | `gnome-40`        | `image: bilelmoussaoui/flatpak-github-actions:gnome-40`        |
-| GNOME           | 41    | `gnome-41`        | `image: bilelmoussaoui/flatpak-github-actions:gnome-41`        |
-| GNOME           | 42    | `gnome-42`        | `image: bilelmoussaoui/flatpak-github-actions:gnome-42`        |
-| GNOME           | 43    | `gnome-43`        | `image: bilelmoussaoui/flatpak-github-actions:gnome-43`        |
-| GNOME           | 44    | `gnome-44`        | `image: bilelmoussaoui/flatpak-github-actions:gnome-44`        |
-| GNOME           | 45    | `gnome-45`        | `image: bilelmoussaoui/flatpak-github-actions:gnome-45`        |
-| GNOME           | master    | `gnome-nightly`        | `image: bilelmoussaoui/flatpak-github-actions:gnome-nightly`        |
-| KDE             | 5.15    | `kde-5.15`          | `image: bilelmoussaoui/flatpak-github-actions:kde-5.15`          |
-| KDE             | 5.15-21.08    | `kde-5.15-21.08`          | `image: bilelmoussaoui/flatpak-github-actions:kde-5.15-21.08`          |
-| KDE             | 5.15-22.08    | `kde-5.15-22.08`          | `image: bilelmoussaoui/flatpak-github-actions:kde-5.15-22.08`          |
-| KDE             | 5.15-23.08    | `kde-5.15-23.08`          | `image: bilelmoussaoui/flatpak-github-actions:kde-5.15-23.08`          |
-| KDE             | 6.2     | `kde-6.2`          | `image: bilelmoussaoui/flatpak-github-actions:kde-6.2`          |
-| KDE             | 6.3     | `kde-6.3`          | `image: bilelmoussaoui/flatpak-github-actions:kde-6.3`          |
-| KDE             | 6.4     | `kde-6.4`          | `image: bilelmoussaoui/flatpak-github-actions:kde-6.4`          |
-| KDE             | 6.5     | `kde-6.5`          | `image: bilelmoussaoui/flatpak-github-actions:kde-6.5`          |
-| KDE             | 6.6     | `kde-6.6`          | `image: bilelmoussaoui/flatpak-github-actions:kde-6.6`          |
-| elementary BaseApp             | juno    | `juno`          | `image: bilelmoussaoui/flatpak-github-actions:elementary-juno`          |
+| Freedesktop SDK | 22.08   | `freedesktop-22.08` | `image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-22.08` |
+| Freedesktop SDK | 23.08   | `freedesktop-23.08` | `image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-23.08` |
+| GNOME           | 44    | `gnome-44`        | `image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-44`        |
+| GNOME           | 45    | `gnome-45`        | `image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-45`        |
+| KDE             | 5.15-22.08    | `kde-5.15-22.08`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-5.15-22.08`          |
+| KDE             | 5.15-23.08    | `kde-5.15-23.08`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-5.15-23.08`          |
+| KDE             | 6.5     | `kde-6.5`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.5`          |
+| KDE             | 6.6     | `kde-6.6`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.6`          |
