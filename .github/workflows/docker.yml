@@ -57,6 +57,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
@@ -77,6 +80,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
           context: .
           file: Dockerfile
+          platforms: linux/amd64,linux/arm64
           pull: true
           push: true
           tags: localhost:5000/base:latest
@@ -101,6 +105,7 @@ jobs:
           allow: security.insecure
           context: .
           file: ${{ matrix.runtime.name }}.Dockerfile
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/flathub-infra/flatpak-github-actions:${{ matrix.runtime.name }}
           cache-from: type=gha
