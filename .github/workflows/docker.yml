@@ -65,19 +65,9 @@ jobs:
         with:
           driver-opts: network=host
 
-      - name: Cache Docker layers for the base image
-        uses: actions/cache@v3
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
       - name: Build & push the base image to local registry
         uses: docker/build-push-action@v5
         with:
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
           context: .
           file: Dockerfile
           platforms: linux/amd64,linux/arm64
@@ -108,5 +98,3 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/flathub-infra/flatpak-github-actions:${{ matrix.runtime.name }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
