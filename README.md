@@ -23,7 +23,7 @@ jobs:
       options: --privileged
     steps:
     - uses: actions/checkout@v4
-    - uses: flathub/flatpak-github-actions/flatpak-builder@v6
+    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
       with:
         bundle: palette.flatpak
         manifest-path: org.gnome.zbrown.Palette.yml
@@ -88,7 +88,7 @@ jobs:
       uses: docker/setup-qemu-action@v2
       with:
         platforms: arm64
-    - uses: flathub/flatpak-github-actions/flatpak-builder@v6
+    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
       with:
         bundle: palette.flatpak
         manifest-path: org.gnome.zbrown.Palette.yml
@@ -157,13 +157,13 @@ jobs:
       options: --privileged
     steps:
     - uses: actions/checkout@v4
-    - uses: flathub/flatpak-github-actions/flatpak-builder@v6
+    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
       name: "Build"
       with:
         bundle: palette.flatpak
         manifest-path: org.gnome.zbrown.Palette.yml
         cache-key: flatpak-builder-${{ github.sha }}
-    - uses: flathub/flatpak-github-actions/flat-manager@v4
+    - uses: flathub-infra/flatpak-github-actions/flat-manager@master
       name: "Deploy"
       with:
         repository: elementary
