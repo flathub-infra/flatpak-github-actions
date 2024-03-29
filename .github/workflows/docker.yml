@@ -31,6 +31,10 @@ jobs:
             packages: org.gnome.Platform//45 org.gnome.Sdk//45
             remote: flathub
 
+          - name: gnome-46
+            packages: org.gnome.Platform//46 org.gnome.Sdk//46
+            remote: flathub
+
           - name: kde-5.15-22.08
             packages: org.kde.Platform//5.15-22.08 org.kde.Sdk//5.15-22.08
             remote: flathub
