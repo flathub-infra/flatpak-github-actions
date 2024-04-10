@@ -81,11 +81,14 @@ jobs:
     - name: Install deps
       if: ${{ matrix.arch != 'x86_64' }}
       run: |
-        dnf -y install docker
+        # Use the static binaries because it's unable to use a package manager 
+        curl https://download.docker.com/linux/static/stable/x86_64/docker-26.0.0.tgz --output ./docker.tgz
+        tar xzvf docker.tgz
+        mv docker/* /usr/bin
     - name: Set up QEMU
       if: ${{ matrix.arch != 'x86_64' }}
       id: qemu
-      uses: docker/setup-qemu-action@v2
+      uses: docker/setup-qemu-action@v3
       with:
         platforms: arm64
     - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
