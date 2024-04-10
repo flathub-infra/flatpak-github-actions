@@ -204,3 +204,4 @@ You can specify the specific runtime you need to use through the image tags:
 | KDE             | 5.15-23.08    | `kde-5.15-23.08`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-5.15-23.08`          |
 | KDE             | 6.5     | `kde-6.5`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.5`          |
 | KDE             | 6.6     | `kde-6.6`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.6`          |
+| KDE             | 6.7     | `kde-6.7`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.7`          |
