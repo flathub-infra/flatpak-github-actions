@@ -200,6 +200,7 @@ You can specify the specific runtime you need to use through the image tags:
 | --------------- | ------- | ------------------- | ---------------------------------------------------------------- |
 | Freedesktop SDK | 22.08   | `freedesktop-22.08` | `image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-22.08` |
 | Freedesktop SDK | 23.08   | `freedesktop-23.08` | `image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-23.08` |
+| Freedesktop SDK | 24.08   | `freedesktop-24.08` | `image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-24.08` |
 | GNOME           | 44    | `gnome-44`        | `image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-44`        |
 | GNOME           | 45    | `gnome-45`        | `image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-45`        |
 | GNOME           | 46    | `gnome-46`        | `image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-46`        |
