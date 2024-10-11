@@ -2,6 +2,8 @@ on:
   schedule:
     - cron: "0 0 * * */7"
   workflow_dispatch:
+  repository_dispatch:
+    types: [trigger-workflow]
 
 name: Docker images
 
