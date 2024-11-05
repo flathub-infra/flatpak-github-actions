@@ -28,10 +28,13 @@ jobs:
             restore: cache-restored
     steps:
       - uses: actions/checkout@v4
-      - name: Install QEMU deps
+      - name: Set up docker
         if: ${{ matrix.arch != 'x86_64' }}
         run: |
-          dnf -y install docker
+          curl https://download.docker.com/linux/static/stable/x86_64/docker-27.3.1.tgz --output docker.tgz
+          tar xzvf docker.tgz
+          chmod -R +x docker
+          mv docker/* /usr/bin
       - name: Set up QEMU
         if: ${{ matrix.arch != 'x86_64' }}
         uses: docker/setup-qemu-action@v3
