@@ -1,7 +1,7 @@
 FROM ghcr.io/flathub/flatpak-builder-lint:latest
 
 ENTRYPOINT []
-ENV TMPDIR /tmp
+ENV TMPDIR=/tmp
 
 RUN flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 RUN flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
