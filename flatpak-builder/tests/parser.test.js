@@ -11,7 +11,7 @@ test('The manifest should be parsed correctly', async () => {
       sources: [
         {
           type: 'git',
-          url: 'https://github.com/bilelmoussaoui/flatpak-github-actions.git'
+          url: 'https://github.com/flathub-infra/flatpak-github-actions.git'
         }
       ]
     }
