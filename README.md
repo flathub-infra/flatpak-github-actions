@@ -204,3 +204,4 @@ You can specify the specific runtime you need to use through the image tags:
 | GNOME           | 47    | `gnome-47`        | `image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-47`        |
 | KDE             | 5.15-23.08    | `kde-5.15-23.08`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-5.15-23.08`          |
 | KDE             | 6.7     | `kde-6.7`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.7`          |
+| KDE             | 6.8     | `kde-6.8`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.8`          |
