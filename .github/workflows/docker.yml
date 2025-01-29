@@ -25,10 +25,6 @@ jobs:
             packages: org.freedesktop.Platform//24.08 org.freedesktop.Sdk//24.08
             remote: flathub
 
-          - name: gnome-45
-            packages: org.gnome.Platform//45 org.gnome.Sdk//45
-            remote: flathub
-
           - name: gnome-46
             packages: org.gnome.Platform//46 org.gnome.Sdk//46
             remote: flathub
@@ -43,10 +39,6 @@ jobs:
 
           - name: kde-5.15-24.08
             packages: org.kde.Platform//5.15-24.08 org.kde.Sdk//5.15-24.08
-            remote: flathub
-
-          - name: kde-6.6
-            packages: org.kde.Platform//6.6 org.kde.Sdk//6.6
             remote: flathub
 
           - name: kde-6.7
