@@ -99,6 +99,44 @@ jobs:
         arch: ${{ matrix.arch }}
 ```
 
+#### Multi arch build using public ARM64 runners
+
+Since, January 2025, [GitHub offers public ARM64 runners](https://github.blog/changelog/2025-01-16-linux-arm64-hosted-runners-now-available-for-free-in-public-repositories-public-preview/).
+So a multi-arch build can be performed using that.
+
+```yaml
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  flatpak:
+    name: "Flatpak"
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-47
+      options: --privileged
+    strategy:
+      matrix:
+        variant:
+          - arch: x86_64
+            runner: ubuntu-24.04
+          - arch: aarch64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.variant.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
+        with:
+          bundle: palette.flatpak
+          manifest-path: org.gnome.zbrown.Palette.yml
+          cache-key: flatpak-builder-${{ github.sha }}
+          arch: ${{ matrix.variant.arch }}
+          verbose: true
+```
+
 #### Building for Automated Tests
 
 As described in the [Inputs](#inputs) documentation, specifying `run-tests: true` will amend the Flatpak manifest to enable Network and X11 access automatically. Any other changes to the manifest must be made manually, such as building the tests (e.g. `-Dtests=true`) or any other options (e.g. `--buildtype=debugoptimized`).
