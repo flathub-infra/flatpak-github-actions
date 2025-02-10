@@ -97,7 +97,7 @@ const startDBusSession = () => {
     })
 
     dbus.stderr.on('data', (data) => {
-      core.error(`Error when starting DBus session: ${data.toString().trim()}`);
+      core.error(`Error when starting DBus session: ${data.toString().trim()}`)
     })
   })
 }
