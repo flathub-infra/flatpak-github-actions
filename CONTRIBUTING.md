@@ -22,3 +22,11 @@ directory. You can do so with
 ncc build ./flatpak-builder/index.js -o ./flatpak-builder/dist/
 ncc build ./flat-manager/index.js -o ./flat-manager/dist/
 ```
+
+## Linting
+
+```
+yarn global add eslint
+
+yarn --cwd flatpak-builder run eslint . --fix && yarn --cwd flat-manager run eslint . --fix
+```
