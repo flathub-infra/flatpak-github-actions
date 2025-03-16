@@ -19,11 +19,11 @@ jobs:
     name: "Flatpak"
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-44
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-47
       options: --privileged
     steps:
-    - uses: actions/checkout@v4
-    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
+    - uses: actions/checkout@<commit hash>
+    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@<commit hash>
       with:
         bundle: palette.flatpak
         manifest-path: org.gnome.zbrown.Palette.yml
@@ -76,7 +76,7 @@ jobs:
       # Don't fail the whole workflow if one architecture fails
       fail-fast: false
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@<commit hash>
     # Docker is required by the docker/setup-qemu-action which enables emulation
     - name: Install deps
       if: ${{ matrix.arch != 'x86_64' }}
@@ -88,10 +88,10 @@ jobs:
     - name: Set up QEMU
       if: ${{ matrix.arch != 'x86_64' }}
       id: qemu
-      uses: docker/setup-qemu-action@v3
+      uses: docker/setup-qemu-action@<commit hash>
       with:
         platforms: arm64
-    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
+    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@<commit hash>
       with:
         bundle: palette.flatpak
         manifest-path: org.gnome.zbrown.Palette.yml
@@ -127,8 +127,8 @@ jobs:
             runner: ubuntu-24.04-arm
     runs-on: ${{ matrix.variant.runner }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
+      - uses: actions/checkout@<commit hash>
+      - uses: flathub-infra/flatpak-github-actions/flatpak-builder@<commit hash>
         with:
           bundle: palette.flatpak
           manifest-path: org.gnome.zbrown.Palette.yml
@@ -197,14 +197,14 @@ jobs:
       image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-44
       options: --privileged
     steps:
-    - uses: actions/checkout@v4
-    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
+    - uses: actions/checkout@<commit hash>
+    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@<commit hash>
       name: "Build"
       with:
         bundle: palette.flatpak
         manifest-path: org.gnome.zbrown.Palette.yml
         cache-key: flatpak-builder-${{ github.sha }}
-    - uses: flathub-infra/flatpak-github-actions/flat-manager@master
+    - uses: flathub-infra/flatpak-github-actions/flat-manager@<commit hash>
       name: "Deploy"
       with:
         repository: elementary
