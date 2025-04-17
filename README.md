@@ -238,7 +238,6 @@ You can specify the specific runtime you need to use through the image tags:
 | --------------- | -----------| ------------------- | ------------------------------------------------------------------------|
 | Freedesktop SDK | 23.08      | `freedesktop-23.08` | `image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-23.08` |
 | Freedesktop SDK | 24.08      | `freedesktop-24.08` | `image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-24.08` |
-| GNOME           | 46         | `gnome-46`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-46`          |
 | GNOME           | 47         | `gnome-47`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-47`          |
 | GNOME           | 48         | `gnome-48`          | `image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-48`          |
 | KDE             | 5.15-23.08 | `kde-5.15-23.08`    | `image: ghcr.io/flathub-infra/flatpak-github-actions:kde-5.15-23.08`    |
