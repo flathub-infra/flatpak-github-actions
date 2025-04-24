@@ -1,3 +1,10 @@
+# NOTE
+
+This fork is deprecated. Please see [this issue](https://github.com/flathub-infra/flatpak-github-actions/issues/17).
+
+The images are provided from the [actions-images](https://github.com/flathub-infra/actions-images)
+repository.
+
 # Flatpak GitHub Actions
 
 Build and deploy your Flatpak application using GitHub Actions
